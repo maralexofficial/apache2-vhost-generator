@@ -1,17 +1,5 @@
 #!/bin/bash
 
-# -----------------------------------------------------------------------------
-# © 2025 evarioo / pixelpatron90 - All rights reserved.
-# @ hello@evarioo.eu
-#
-# This script was crafted by evarioo with brainpower, heart, and occasional coffee.
-# If you're reading this and trying to figure out how it works:
-# Congratulations — you're now an official script archaeologist! 🦴💻
-#
-# Use at your own risk. No guarantees of bug-free code or world peace.
-# Redistribution, modification, and usage are allowed — just be nice. 😄
-# -----------------------------------------------------------------------------
-
 read -p "Domain (e.g. example.com): " DOMAIN
 
 if [[ -z "$DOMAIN" ]]; then
