@@ -62,9 +62,9 @@ sudo chown -R $USERNAME:www-data "${DOCROOT}/httpdocs" "${DOCROOT}/logs" "${DOCR
 sudo find "${DOCROOT}" -type d -exec chmod 2775 {} \;
 sudo find "${DOCROOT}" -type f -exec chmod 664 {} \;
 
-echo "<h1>${DOMAIN} is working with HTTPS!</h1>" | sudo tee "${HTTPDOCS_PATH}/index.html" > /dev/null
+echo "<h1>${DOMAIN} is working with HTTPS!</h1>" | sudo tee "${HTTPDOCS_PATH}/index.html" >/dev/null
 
-cat <<EOF | sudo tee "$VHOST_PATH" > /dev/null
+cat <<EOF | sudo tee "$VHOST_PATH" >/dev/null
 <VirtualHost *:80>
     ServerName ${DOMAIN}
     ${WWW_ALIAS}
@@ -87,7 +87,7 @@ if sudo certbot --apache $CERT_DOMAINS --non-interactive --agree-tos -m "$EMAIL"
     echo "✅ SSL certificate obtained successfully."
     SSL_SUCCESS=true
 
-    cat <<EOF | sudo tee -a "$VHOST_PATH" > /dev/null
+    cat <<EOF | sudo tee -a "$VHOST_PATH" >/dev/null
 
 <VirtualHost *:443>
     ServerName ${DOMAIN}
@@ -121,11 +121,9 @@ if [ -f "$SSL_CONF_FILE" ]; then
     sudo rm "$SSL_CONF_FILE"
 fi
 
-# Restart Apache for all changes
 echo "🔄 Restarting Apache2..."
 sudo systemctl restart apache2
 
-# Output summary
 echo ""
 echo "✅ Setup complete:"
 
@@ -138,6 +136,5 @@ fi
 echo "📁 Document Root: ${DOCROOT}"
 echo "👤 User: ${USERNAME} (SFTP-only)"
 
-# Final root wisdom 😎
 echo ""
-echo "🧙‍♂️ Root wisdom of the day: 'With great power comes great `chmod 700`.'"
+echo "🧙‍♂️ Root wisdom of the day: 'With great power comes great $(chmod 700).'"

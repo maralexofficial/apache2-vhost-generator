@@ -1,12 +1,17 @@
 # Table of contents
 
-* [About the project](#about-the-project)
+* [Preface](#preface)
+* [About this repo](#about-this-repo)
+* [Quick Overview](#quick-overview)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Authors](#authors)
 * [License](#license)
 
-# About the project
+# Preface
+--
+
+# About this repo
 
 This Bash script automates the setup of a new Apache2 VirtualHost, complete with:
 
@@ -14,15 +19,15 @@ This Bash script automates the setup of a new Apache2 VirtualHost, complete with
 * Directory structure creation
 * Let's Encrypt SSL certificate setup
 
-### Features
+# Quick overview
 
-✍ **User inputs**
+### ✍ User inputs
 * Domain name (e.g. example.com)
 * E-Mail address (used for Let's Encrypt registration)
 * New system username
 * Optional www. subdomain support
 
-📂 **Directory structure:**
+### Directory structure
 * Creates following directorys:
 ```
 /var/www/<domain>/
@@ -31,7 +36,7 @@ This Bash script automates the setup of a new Apache2 VirtualHost, complete with
 └── files      # Optional file storage
 ```
 
-🔑 **User & permissions:**
+### User & permissions
 * Adds new user (if not existing) with:
 * Home directory at /var/www/<domain>
 * /usr/sbin/nologin shell (no terminal access)
@@ -41,7 +46,7 @@ This Bash script automates the setup of a new Apache2 VirtualHost, complete with
 > [!TIP]
 > For later FTP access please read the note.
 
-**FTP Access tip**
+### FTP
 
 For FTP access to work, you must change the user's shell from /usr/sbin/nologin to /bin/false. This is required because the script currently sets the user's shell to /usr/sbin/nologin to prevent terminal access. To enable FTP, you can run the following command:
 
@@ -55,7 +60,7 @@ Replace username with the actual username of the user. This will allow FTP acces
 > Additionally, make sure your FTP server (e.g. ProFTPD or vsftpd) is configured to allow logins only for users with /bin/false as their shell.
 > This ensures that only explicitly designated FTP users are allowed to connect, improving security.
 
-🛠️ **Apache configuration:**
+### Apache2
 * Creates basic HTTP VirtualHost with automatic redirect to HTTPS
 * Enables rewrite and ssl modules
 * Requests a Let's Encrypt certificate using Certbot
@@ -64,17 +69,19 @@ Replace username with the actual username of the user. This will allow FTP acces
 
 # Installation
 
-Clone this repo:
+#### Clone this repo:
+
 ```
 git clone https://github.com/maralexofficial/apache2-vhost-generator.git
 ```
 
-Change directory to
+#### Change directory to
+
 ```
 cd apache2-vhost-generator
 ```
 
-To run this script we should add permission
+#### To run this script we should add permission
 
 ```
 chmod +x apache2-vhost-generator
@@ -93,3 +100,7 @@ chmod +x apache2-vhost-generator
 # License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+_____________________________________________________----
+
+
