@@ -66,29 +66,29 @@ Replace username with the actual username of the user. This will allow FTP acces
 
 Clone this repo:
 ```
-git clone https://github.com/evarioooo/vhostgen-sh.git
+git clone https://github.com/maralexofficial/apache2-vhost-generator.git
 ```
 
 Change directory to
 ```
-cd vhostgen-sh
+cd apache2-vhost-generator
 ```
 
 To run this script we should add permission
 
 ```
-chmod +x vhostgen-sh
+chmod +x apache2-vhost-generator
 ```
 
 # Usage
 
 ```
-./vhostgen-sh
+./apache2-vhost-generator
 ```
 
 # Authors
 
-* [evarioooo](https://github.com/evarioooo)
+* [maralexofficial](https://github.com/maralexofficial)
 
 # License
 
